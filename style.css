@@ -6,32 +6,34 @@
 
 body {
   background-color: black;
-  min-width: 1080px;
+  /*min-width: 1080px;*/
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+  font-size: 20px;
 }
 
 .header {
   display: flex;
-  width: 100%;
+  width: 100%; /*1920*/
   height: 80px;
   margin: 0 auto;
-  padding: 50px 130px;
+  /*padding: 50px 7%; /*контент 1660*/
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-between;
   align-items: center;
+  padding: 1% 5%;
 }
 
 nav {
   display: flex;
-  width: 1193px;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 70%; /*1150/1660*100*/
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 280px;
+  gap: 25%;
 }
 
 .logo {
@@ -43,39 +45,56 @@ nav {
 }
 
 .header-menu {
-  width: 564px;
+  width: 50%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 10%;
   justify-content: center;
-  flex: 2 1 300px;
+  flex: 2 1 50%;
 }
 
 .header-item a {
-  font-size: 24px;
+  font-size: 120%;
   font-family: "Merriweather";
   color: #c0b8b4;
   text-decoration: none;
   text-transform: uppercase;
+  position: relative;
 }
 
-.steam a {
+/* Линия появляется снизу из центра */
+.menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #c0b8b4;
+  transition: transform 0.3s ease;
+}
+
+/* При наведении выезжает линия */
+.menu-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.steam {
   display: flex;
   flex-wrap: nowrap;
-  width: 280px;
+  width: 280px; /*280*/
   height: 47px;
   align-items: center;
   gap: 16px;
   color: #c0b8b4;
   font-family: "Inter", sans-serif;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 100%;
   text-transform: uppercase;
   justify-content: center;
-}
-
-.steam {
   border: 2px solid #c0b8b4;
   border-radius: 30px;
 }
@@ -84,82 +103,14 @@ nav {
   background-color: #c0b8b4;
   border-radius: 30px;
   border: 2px solid #c0b8b4;
+  transition: fill 0.3s ease;
+  color: #000;
 }
 
-.steam a:hover svg {
+.steam:hover svg {
   fill: #000;
   transition: fill 0.3s ease;
 }
-.steam a:hover {
-  color: #000;
-  transition: fill 0.3s ease;
-}
-
-/*.header-item a {
-  font-size: 20px;
-  font-family: "Merriweather";
-  color: #c0b8b4;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-header {
-  width: 100%;
-  padding: 15px 0;
-}
-.header {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0 130px;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.header img {
-  flex: 1 1 auto;
-}
-
-.steam {
-  flex: 0 1 auto;
-}
-
-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.header-menu {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 120px;
-  justify-content: center;
-  flex: 2 1 300px;
-}
-
-.steam a {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: #c0b8b4;
-  font-family: "Inter", sans-serif;
-  text-decoration: none;
-  font-size: 20px;
-  text-transform: uppercase;
-  border: 2px solid #c0b8b4;
-  border-radius: 30px;
-  padding: 12px 16px;
-}
-
-.logo img {
-  display: block;
-  height: auto;
-}*/
 
 .promo {
   background: linear-gradient(
@@ -183,7 +134,7 @@ nav {
 .animate-text {
   position: relative;
   overflow: hidden;
-  width: 1432px;
+  width: 100%;
   height: 322px;
   display: flex;
   justify-content: center;
@@ -198,7 +149,7 @@ nav {
 
   font-size: 128px;
   font-family: "Merriweather";
-  color: #ffffff;
+  color: #c0b8b4;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -218,11 +169,11 @@ nav {
   }
 }
 .about_game {
-  font-size: 28px;
+  font-size: 140%;
   font-family: "Inter", sans-serif;
-  color: #ffffff;
+  color: #c0b8b4;
   text-decoration: none;
-  width: 1058px;
+  width: 55%;
   text-align: center;
   display: flex;
   align-self: center;
@@ -232,11 +183,21 @@ nav {
   display: flex;
   align-self: center;
   margin-bottom: 20px;
-  width: 500px;
+  width: 30%;
   height: 1px;
   min-height: 1px;
-  background-color: #ffffff;
+  background-color: #c0b8b4;
   border-radius: 1px;
+  animation: slideIn 1.5s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 30%;
+  }
 }
 
 .facts-main {
@@ -248,8 +209,8 @@ nav {
 
 .facts-item {
   list-style: none;
-  min-width: 512px;
-  min-height: 290px;
+  /*min-width: 512px;
+  min-height: 290px;*/
   width: 512px;
   height: 290px;
   border-radius: 20px;
@@ -259,12 +220,14 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 20px;
+  font-size: 100%;
   font-family: "Inter", sans-serif;
   color: #ffffff;
   font-weight: bold;
 }
-
+.facts-item p {
+  width: 70%;
+}
 .facts-item:first-child {
   background: radial-gradient(
       ellipse,
@@ -273,6 +236,7 @@ nav {
       rgba(0, 0, 0, 0) 100%
     ),
     url(img/1.jpg) no-repeat top center;
+  background-size: cover;
 }
 
 .facts-item:nth-child(2) {
@@ -283,6 +247,7 @@ nav {
       rgba(0, 0, 0, 0) 100%
     ),
     url(img/2.jpg) no-repeat top center;
+  background-size: cover;
 }
 
 .facts-item:nth-child(3) {
@@ -293,6 +258,7 @@ nav {
       rgba(0, 0, 0, 0) 100%
     ),
     url(img/3.jpg) no-repeat top center;
+  background-size: cover;
 }
 
 .facts-item:nth-child(4) {
@@ -303,6 +269,7 @@ nav {
       rgba(0, 0, 0, 0) 100%
     ),
     url(img/4.jpg) no-repeat top center;
+  background-size: cover;
 }
 
 .facts-item:nth-child(5) {
@@ -313,6 +280,7 @@ nav {
       rgba(0, 0, 0, 0) 100%
     ),
     url(img/5.jpg) no-repeat top center;
+  background-size: cover;
 }
 
 .facts-item:nth-child(6) {
@@ -353,42 +321,47 @@ nav {
 }
 
 .first-text {
-  font-size: 80px;
+  font-size: 400%;
   color: #c5c5c5;
   width: 474px;
   margin-bottom: -25px;
 }
 
 .second-text {
-  font-size: 192px;
+  font-size: 960%;
   color: #fff;
   width: 645px;
   margin-top: -25px;
 }
 
-.steam-2 a {
+.steam-2 {
   display: flex;
+  flex-wrap: nowrap;
+  width: 280px; /*280*/
+  height: 47px;
   align-items: center;
   gap: 16px;
   color: #6a6f70;
   font-family: "Inter", sans-serif;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 100%;
   text-transform: uppercase;
+  justify-content: center;
   border: 2px solid #fff;
+  background-color: #fff;
   border-radius: 30px;
-  padding: 12px 16px;
-  width: 280px;
-  background-color: white;
 }
 
-.steam-2 a:hover svg {
-  fill: #fff;
-  transition: fill 0.3s ease;
-}
-.steam-2 a:hover {
-  color: #fff;
+.steam-2:hover {
   background-color: #6a6f70;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  transition: fill 0.3s ease;
+  color: #fff;
+}
+
+.steam-2:hover svg {
+  fill: #fff;
   transition: fill 0.3s ease;
 }
 
@@ -403,42 +376,175 @@ footer {
 footer p {
   font-family: "Inter", sans-serif;
   text-decoration: none;
-  font-size: 24px;
-  font-weight: 200;
+  width: 80%;
+  font-size: 50%;
+  font-weight: 100;
   text-transform: uppercase;
   text-align: center;
-  padding: 20px 250px 0px 250px;
+  padding: 20px 15% 0px 15%;
+}
+footer img {
+  width: 28%;
 }
 
-@media screen and (max-width: 1300px) {
+@media (max-width: 1440px) {
+  body {
+    font-size: 14px;
+  }
   .header {
-    flex-direction: column; /* Меняем расположение на вертикальное */
-    align-items: flex-start; /* Логотип и кнопка на одной линии */
+    height: 60px;
+  }
+  .logo {
+    width: 195px;
+    height: 45px;
+  }
+  .steam,
+  .steam-2 {
+    width: 210px;
+    height: 35.25px;
+  }
+  .animate-text h1 {
+    font-size: 96px;
+  }
+  .promo {
+    min-height: 720px;
+    margin-bottom: 97.5px;
+  }
+  .animate-text {
+    height: 241.5px;
   }
 
-  .header a {
-    flex: 0 1 100%; /* Логотип фиксированный */
+  .facts-item {
+    width: 384px;
+    height: 217.5px;
+  }
+
+  .facts-main {
+    margin: 0 97.5px;
+  }
+
+  .first-text {
+    margin-bottom: 0px;
+    font-size: 300%;
+  }
+  .second-text {
+    font-size: 720%;
+  }
+  .invite {
+    height: 330px;
+    padding-left: 97.5px;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 1080px) {
+  body {
+    font-size: 12px;
+  }
+  .header {
+    height: 45px;
+  }
+  .logo {
+    width: 147px;
+    height: 33.75px;
+  }
+  .steam,
+  .steam-2 {
+    width: 170px;
+    gap: 10px;
+    height: 27px;
+  }
+  .animate-text h1 {
+    font-size: 72px;
+  }
+  .promo {
+    min-height: 540px;
+    margin-bottom: 74px;
+  }
+  .animate-text {
+    height: 181.125px;
+  }
+
+  .facts-item {
+    width: 288px;
+    height: 163.125px;
+  }
+
+  .facts-main {
+    margin: 0 73.125px;
+  }
+
+  .first-text {
     margin-bottom: 10px;
+    font-size: 225%;
+  }
+  .second-text {
+    font-size: 540%;
+  }
+  .invite {
+    height: 247.5px;
+    padding-left: 73.125px;
+  }
+  svg {
+    width: 13.5px;
+    height: 13.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+  .header {
+    height: 40px;
+  }
+  .logo {
+    width: 110.25px;
+    height: 25px;
+  }
+  .steam,
+  .steam-2 {
+    width: 140px;
+    gap: 5px;
+    height: 20px;
+  }
+  .animate-text h1 {
+    font-size: 54px;
+  }
+  .promo {
+    min-height: 405px;
+    margin-bottom: 55.5px;
+  }
+  .animate-text {
+    height: 136px;
   }
 
-  .header nav {
-    width: 100%;
-    margin-top: 10px;
+  .facts-item {
+    width: 216px;
+    height: 122px;
   }
 
-  .header-menu {
-    display: flex;
-    flex-direction: column; /* Переносим пункты меню на новый столбик */
-    align-items: flex-start;
+  .facts-main {
+    margin: 0 55px;
   }
 
-  .header-item {
-    margin: 5px 0;
+  .first-text {
+    margin-bottom: 20px;
+    font-size: 168.75%;
   }
-
-  /* Кнопка с фиксированной шириной */
-  .steam {
-    width: auto; /* Убираем растяжение кнопки на всю ширину */
-    margin-top: 10px;
+  .second-text {
+    font-size: 405%;
+  }
+  .invite {
+    height: 185.625px;
+    padding-left: 55px;
+  }
+  svg {
+    width: 10.125px;
+    height: 10.125px;
   }
 }
