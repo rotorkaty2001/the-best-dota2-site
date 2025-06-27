@@ -8,7 +8,6 @@ body {
   background-color: black;
   /*min-width: 1080px;*/
   color: rgb(255, 255, 255);
-  text-decoration: none;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-size: 20px;
@@ -20,7 +19,7 @@ body {
   height: 80px;
   margin: 0 auto;
   /*padding: 50px 7%; /*контент 1660*/
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-content: center;
   justify-content: space-between;
   align-items: center;
@@ -40,15 +39,15 @@ nav {
   background-image: url(img/Dota_logo_2.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 260px;
-  height: 60px;
+  width: clamp(110px, 10vw, 260px);
+  height: clamp(20px, 5vw, 47px);
 }
 
 .header-menu {
   width: 50%;
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10%;
   justify-content: center;
   flex: 2 1 50%;
@@ -56,7 +55,7 @@ nav {
 
 .header-item a {
   font-size: 120%;
-  font-family: "Merriweather";
+  font-family: "Merriweather", sans-serif;
   color: #c0b8b4;
   text-decoration: none;
   text-transform: uppercase;
@@ -109,7 +108,6 @@ nav {
 
 .steam:hover svg {
   fill: #000;
-  transition: fill 0.3s ease;
 }
 
 .promo {
@@ -122,7 +120,7 @@ nav {
     ),
     url(img/heroes_full.jpg) no-repeat top center;
   background-size: 120%;
-  min-height: 960px;
+  min-height: 970px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -135,7 +133,7 @@ nav {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 322px;
+  height: clamp(100px, 40vh, 322px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,8 +145,8 @@ nav {
   left: 0;
   width: 100%;
 
-  font-size: 128px;
-  font-family: "Merriweather";
+  font-size: clamp(20px, 8vw, 128px);
+  font-family: "Merriweather", sans-serif;
   color: #c0b8b4;
   text-decoration: none;
   text-transform: uppercase;
@@ -302,7 +300,7 @@ nav {
       rgba(106, 111, 112, 0) 100%
     ),
     url(img/img_invite.jpg) top right;
-  background-size: 70%;
+  background-size: 70% auto;
   background-repeat: no-repeat;
   height: 440px;
   width: 100%;
@@ -315,7 +313,7 @@ nav {
 
 .first-text,
 .second-text {
-  font-family: "Merriweather";
+  font-family: "Merriweather", sans-serif;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -362,7 +360,6 @@ nav {
 
 .steam-2:hover svg {
   fill: #fff;
-  transition: fill 0.3s ease;
 }
 
 footer {
@@ -394,25 +391,24 @@ footer img {
   .header {
     height: 60px;
   }
-  .logo {
-    width: 195px;
-    height: 45px;
-  }
+  /*.logo {
+    height: 35px;
+  }*/
   .steam,
   .steam-2 {
     width: 210px;
     height: 35.25px;
   }
-  .animate-text h1 {
+  /*.animate-text h1 {
     font-size: 96px;
-  }
+  }*/
   .promo {
     min-height: 720px;
     margin-bottom: 97.5px;
   }
-  .animate-text {
+  /*.animate-text {
     height: 241.5px;
-  }
+  }*/
 
   .facts-item {
     width: 384px;
@@ -448,26 +444,26 @@ footer img {
   .header {
     height: 45px;
   }
-  .logo {
+  /*.logo {
     width: 147px;
     height: 33.75px;
-  }
+  }*/
   .steam,
   .steam-2 {
     width: 170px;
     gap: 10px;
     height: 27px;
   }
-  .animate-text h1 {
-    font-size: 72px;
-  }
+  /*.animate-text h1 {
+    font-size: 60px;
+  }*/
   .promo {
     min-height: 540px;
     margin-bottom: 74px;
   }
-  .animate-text {
+  /*.animate-text {
     height: 181.125px;
-  }
+  }*/
 
   .facts-item {
     width: 288px;
@@ -502,25 +498,31 @@ footer img {
   .header {
     height: 40px;
   }
-  .logo {
+  nav {
+    gap: 5%;
+  }
+  .header-menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: revert;
+  }
+  /*.logo {
     width: 110.25px;
     height: 25px;
-  }
+  }*/
   .steam,
   .steam-2 {
     width: 140px;
     gap: 5px;
     height: 20px;
   }
-  .animate-text h1 {
-    font-size: 54px;
-  }
+  /*.animate-text h1 {
+    font-size: clamp(30px, 5vw, 128px);
+  }*/
   .promo {
-    min-height: 405px;
+    min-height: 380px;
     margin-bottom: 55.5px;
-  }
-  .animate-text {
-    height: 136px;
   }
 
   .facts-item {
@@ -546,5 +548,40 @@ footer img {
   svg {
     width: 10.125px;
     height: 10.125px;
+  }
+}
+
+@media (max-width: 604px) {
+  body {
+    font-size: 8px;
+  }
+  /*.logo {
+    width: 110.25px;
+    height: 25px;
+  }*/
+
+  .promo {
+    min-height: 275px;
+    margin-bottom: 41.625px;
+  }
+
+  .animate-text {
+    height: clamp(100px, 15vh, 322px);
+  }
+
+  .animate-text {
+    font-size: clamp(15px, 5vw, 128px);
+  }
+
+  .first-text {
+    margin-bottom: 20px;
+    font-size: 168.75%;
+  }
+  .second-text {
+    font-size: 405%;
+  }
+  .invite {
+    height: 120px;
+    padding-left: 55px;
   }
 }
